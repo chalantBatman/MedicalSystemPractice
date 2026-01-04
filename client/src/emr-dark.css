@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: light dark;
+}
+
+:root {
+  --bg: #f4f7fb;
+  --card: rgba(255, 255, 255, 0.92);
+  --text: #0b1324;
+  --muted: #41506a;
+  --border: rgba(15, 23, 42, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.95);
+  --button-bg: #0f766e;
+  --button-text: #f8fafc;
+  --accent: #0ea5a5;
+  --accent-strong: #0f766e;
+  --grid: rgba(15, 23, 42, 0.05);
+  --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1120;
+    --card: rgba(15, 23, 42, 0.65);
+    --text: rgba(248, 250, 252, 0.95);
+    --muted: rgba(226, 232, 240, 0.72);
+    --border: rgba(148, 163, 184, 0.24);
+    --input-bg: rgba(2, 6, 23, 0.45);
+    --button-bg: #0ea5a5;
+    --button-text: #041315;
+    --accent: #22d3ee;
+    --accent-strong: #14b8a6;
+    --grid: rgba(148, 163, 184, 0.12);
+    --shadow: 0 24px 70px rgba(2, 6, 23, 0.6);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* page layout */
+.container {
+  display: grid;
+  gap: 18px;
+
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 24px;
+  justify-items: center;
+}
+
+.container > * {
+  width: min(960px, 100%);
+}
+
+
+
+/* cards */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  background: var(--card);
+  width: min(960px, 100%);
+  text-align: left;
+}
+
+/* text helpers */
+.muted {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+/* form controls */
+label {
+  display: block;
+  font-size: 12px;
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(14, 165, 165, 0.15);
+}
+
+/* buttons */
+button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--button-text);
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 16px 24px rgba(14, 165, 165, 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+button:hover {
+  filter: brightness(1.02);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 28px rgba(14, 165, 165, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 18px rgba(14, 165, 165, 0.22);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row > * {
+  flex: 1;
+}
+
+/* table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+
+::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+input,
+select,
+textarea {
+  color: var(--text) !important;
+  background: var(--input-bg) !important;
+  border-color: var(--border) !important;
+}
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0;
+  padding: 48px 24px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(14, 165, 165, 0.25), transparent 60%),
+    radial-gradient(900px 500px at 110% 5%, rgba(34, 197, 94, 0.18), transparent 55%),
+    linear-gradient(120deg, rgba(15, 118, 110, 0.08), rgba(59, 130, 246, 0.06));
+}
+
+.auth-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(transparent 0 97%, var(--grid) 97%),
+    linear-gradient(90deg, transparent 0 97%, var(--grid) 97%);
+  background-size: 48px 48px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.auth-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 18px;
+  animation: auth-fade 600ms ease both;
+}
+
+.auth-title h1 {
+  font-family: "Fraunces", "Space Grotesk", serif;
+  font-size: clamp(28px, 3vw, 36px);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.auth-title .muted {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+.auth-card {
+  width: min(420px, 100%);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  animation: auth-rise 700ms ease both;
+}
+
+.auth-card h1 {
+  text-align: center;
+  font-family: "Fraunces", "Space Grotesk", serif;
+  letter-spacing: 0.01em;
+}
+.auth-card form { margin-top: 24px; }
+
+.err {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+@keyframes auth-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes auth-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

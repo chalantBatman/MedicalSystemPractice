@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple EMR</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Simple EMR</h1>
+  <p class="muted">Patients + Appointments (SQLite)</p>
+
+  <div id="msg"></div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Add Patient</h2>
+      <form id="patientForm">
+        <label>Name</label>
+        <input id="p_name" placeholder="Jane Smith" required />
+
+        <label>Date of Birth (YYYY-MM-DD)</label>
+        <input id="p_dob" placeholder="1990-06-10" required />
+
+        <label>Phone</label>
+        <input id="p_phone" placeholder="555-7777" />
+
+        <button type="submit">Create Patient</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Create Appointment</h2>
+      <form id="apptForm">
+        <label>Patient</label>
+        <select id="a_patient" required></select>
+
+        <div class="row">
+          <div>
+            <label>Date/Time</label>
+            <input id="a_datetime" placeholder="2025-01-05 10:30" required />
+          </div>
+          <div>
+            <label>Status</label>
+            <input value="scheduled" disabled />
+          </div>
+        </div>
+
+        <label>Reason</label>
+        <textarea id="a_reason" placeholder="Annual checkup"></textarea>
+
+        <button type="submit">Create Appointment</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Patients</h2>
+      <button id="refreshPatients">Refresh Patients</button>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>DOB</th><th>Phone</th></tr>
+        </thead>
+        <tbody id="patientsBody"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Appointments</h2>
+      <button id="refreshAppts">Refresh Appointments</button>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Date/Time</th><th>Patient</th><th>Reason</th><th>Status</th></tr>
+        </thead>
+        <tbody id="apptsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
+

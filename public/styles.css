@@ -1,0 +1,14 @@
+body { font-family: system-ui, -apple-system, Arial; margin: 24px; max-width: 900px; }
+    h1 { margin-bottom: 6px; }
+    .muted { color: #666; margin-top: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 14px; }
+    label { display:block; font-size: 12px; margin-top: 10px; color: #444; }
+    input, select, textarea, button { width: 100%; padding: 10px; margin-top: 6px; }
+    button { cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border-bottom: 1px solid #eee; padding: 8px; text-align: left; font-size: 14px; }
+    .row { display:flex; gap: 10px; }
+    .row > * { flex: 1; }
+    .ok { color: #0a7; }
+    .err { color: #b00; white-space: pre-wrap; }
